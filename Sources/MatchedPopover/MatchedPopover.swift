@@ -211,6 +211,7 @@ private struct MatchedPopoverContainerModifier<ID: Hashable, Popover: View>: Vie
     func body(content: Content) -> some View {
         ZStack {
             content
+            
                 .overlay {
                     // Full-screen tap-catcher: tap anywhere to dismiss.
                     // Placed ABOVE the content and BELOW the popover (popover is added later in the ZStack).
@@ -219,7 +220,9 @@ private struct MatchedPopoverContainerModifier<ID: Hashable, Popover: View>: Vie
                             .ignoresSafeArea()
                             .contentShape(.rect)
                             .onTapGesture {
-                                withAnimation { selection = nil }
+                                withAnimation {
+                                    selection = nil
+                                }
                             }
                     }
                 }
@@ -234,7 +237,7 @@ private struct MatchedPopoverContainerModifier<ID: Hashable, Popover: View>: Vie
                         isSource: false
                     )
                     .transition(
-                        .opacity.combined(with: .scale.combined(with: .blurReplace))
+                        .opacity.combined(with: .scale)
                         .animation(.bouncy(duration: 0.3))
                     )
             }
@@ -293,7 +296,7 @@ private extension UnitPoint {
         case .bottomLeading: .topTrailing
         case .bottomTrailing: .topLeading
         case .center: .center
-        default: .center            
+        default: .center
         }
     }
 }
