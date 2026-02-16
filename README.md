@@ -27,7 +27,7 @@ Copy `MatchedPopover` into your project or add it as a Swift Package.
 
 ```
 
-[https://github.com/your-username/MatchedPopover](https://github.com/your-username/MatchedPopover)
+[https://github.com/Livsy90/MatchedPopover](https://github.com/Livsy90/MatchedPopover)
 
 ````
 
@@ -199,14 +199,6 @@ selection: Binding<ID?>
 
 * iOS 17+
 * SwiftUI
-
----
-
-## 🔗 Repository
-
-GitHub:
-
-[https://github.com/Livsy90/MatchedPopover](https://github.com/your-username/MatchedPopover)
 
 ---
 
