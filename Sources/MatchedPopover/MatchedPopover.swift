@@ -211,7 +211,6 @@ private struct MatchedPopoverContainerModifier<ID: Hashable, Popover: View>: Vie
     func body(content: Content) -> some View {
         ZStack {
             content
-            
                 .overlay {
                     // Full-screen tap-catcher: tap anywhere to dismiss.
                     // Placed ABOVE the content and BELOW the popover (popover is added later in the ZStack).
