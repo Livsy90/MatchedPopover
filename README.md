@@ -23,12 +23,8 @@ A lightweight SwiftUI helper for building **matched-geometry popovers** with a c
 
 Copy `MatchedPopover` into your project or add it as a Swift Package.
 
-**SPM (example):**
-
 ```
-
-[https://github.com/Livsy90/MatchedPopover](https://github.com/Livsy90/MatchedPopover)
-
+https://github.com/Livsy90/MatchedPopover
 ````
 
 ---
