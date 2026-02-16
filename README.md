@@ -92,6 +92,78 @@ button(.view1)
 
 ---
 
+##  Full Example
+
+```swift
+struct PopoverView: View {
+    
+    enum PopoverTarget: String {
+        case view1
+        case view2
+        case view3
+        
+        var anchor: UnitPoint {
+            switch self {
+            case .view1: .leading
+            case .view2: .top
+            case .view3: .bottom
+            }
+        }
+    }
+    
+    @State private var selection: PopoverTarget?
+    
+    var body: some View {
+        VStack(spacing: 40) {
+            HStack {
+                Spacer()
+                button(.view1)
+                    .matchedPopoverSource(
+                        id: PopoverTarget.view1,
+                        anchor: PopoverTarget.view1.anchor
+                    )
+                    .padding()
+            }
+            
+            button(.view2)
+                .matchedPopoverSource(
+                    id: PopoverTarget.view2,
+                    anchor: PopoverTarget.view2.anchor
+                )
+            
+            button(.view3)
+                .matchedPopoverSource(
+                    id: PopoverTarget.view3,
+                    anchor: PopoverTarget.view3.anchor
+                )
+        }
+        .frame(maxHeight: .infinity)
+        .ignoresSafeArea()
+        .matchedPopover(
+            selection: $selection,
+            anchor: { $0.anchor }
+        ) { id in
+            Text("Popover: \(String(describing: id))")
+                .fontWeight(.semibold)
+                .fontDesign(.rounded)
+                .padding()
+                .background(.ultraThinMaterial)
+                .clipShape(.rect(cornerRadius: 16))
+                .padding()
+        }
+    }
+    
+    private func button(_ target: PopoverTarget) -> some View {
+        Button(target.rawValue) {
+            selection = (selection == target) ? nil : target
+        }
+        .buttonStyle(.borderedProminent)
+    }
+}
+```
+
+---
+
 ##  How It Works
 
 * Each anchor view uses `matchedGeometryEffect`
