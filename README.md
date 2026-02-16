@@ -4,7 +4,7 @@ A lightweight SwiftUI helper for building **matched-geometry popovers** with a c
 
 `MatchedPopover` lets you attach a popover to any view using `matchedGeometryEffect`, while keeping the presentation logic simple and driven by a single source of truth — just like `sheet(item:)`.
 
-<img src="https://github.com/Livsy90/MatchedPopover/blob/main/MATCHEDPOPOVERDEMO.gif" height="450">
+<img src="https://github.com/Livsy90/MatchedPopover/blob/main/MATCHEDPOPOVERDEMO.gif" height="250">
 
 ---
 
