@@ -204,7 +204,7 @@ private struct MatchedPopoverContainerModifier<ID: Hashable, Popover: View>: Vie
     @ViewBuilder var popover: (ID) -> Popover
     
     /// Internally presented id (what is currently rendered in the overlay).
-    @State private var presented: ID? = nil
+    @State private var presented: ID?
     
     @Namespace private var ns
     
@@ -285,19 +285,16 @@ private extension UnitPoint {
     /// For example: `.bottom` -> `.top`, `.topLeading` -> `.bottomTrailing`.
     var opposite: UnitPoint {
         switch self {
-        case .top: return .bottom
-        case .bottom: return .top
-        case .leading: return .trailing
-        case .trailing: return .leading
-        case .topLeading: return .bottomTrailing
-        case .topTrailing: return .bottomLeading
-        case .bottomLeading: return .topTrailing
-        case .bottomTrailing: return .topLeading
-        case .center: return .center
-        default:
-            // For custom anchors, we can't reliably infer an opposite.
-            // Fall back to `.center`.
-            return .center
+        case .top: .bottom
+        case .bottom: .top
+        case .leading: .trailing
+        case .trailing: .leading
+        case .topLeading: .bottomTrailing
+        case .topTrailing: .bottomLeading
+        case .bottomLeading: .topTrailing
+        case .bottomTrailing: .topLeading
+        case .center: .center
+        default: .center            
         }
     }
 }
@@ -306,7 +303,7 @@ private extension UnitPoint {
 
 private extension EnvironmentValues {
     /// Shared namespace for `matchedGeometryEffect` between sources and the overlay popover.
-    @Entry var matchedPopoverNamespace: Namespace.ID? = nil
+    @Entry var matchedPopoverNamespace: Namespace.ID?
 }
 
 // MARK: - Demo
